@@ -12,8 +12,11 @@ function generateCode(): void {
   const namespace = getInputValue("namespace", "App\\Entity");
   let repositoryClass = getInputValue("repositoryClass");
   if (!repositoryClass) {
-    repositoryClass = namespace.replace("Entity", "Repository") +
-      "\\" + className + "Repository";
+    repositoryClass =
+      namespace.replace("Entity", "Repository") +
+      "\\" +
+      className +
+      "Repository";
   }
   const fields = getFieldsFromDOM();
   const code = generateEntityCode({
@@ -49,16 +52,22 @@ function copyToClipboard(): void {
     });
 }
 
-document.getElementById("addField")?.addEventListener("click", () => addField());
-document.getElementById("generateCode")?.addEventListener("click", generateCode);
+document
+  .getElementById("addField")
+  ?.addEventListener("click", () => addField());
+document
+  .getElementById("generateCode")
+  ?.addEventListener("click", generateCode);
 document.getElementById("copyCode")?.addEventListener("click", copyToClipboard);
 
-// Auto-generowanie repository class na podstawie class name
+
 document.getElementById("className")?.addEventListener("input", function () {
   const className = (this as HTMLInputElement).value;
   const namespace = getInputValue("namespace", "App\\Entity");
   const repositoryNamespace = namespace.replace("Entity", "Repository");
-  const repoInput = document.getElementById("repositoryClass") as HTMLInputElement | null;
+  const repoInput = document.getElementById(
+    "repositoryClass"
+  ) as HTMLInputElement | null;
   if (repoInput)
     repoInput.placeholder = `${repositoryNamespace}\\${className}Repository`;
 });
