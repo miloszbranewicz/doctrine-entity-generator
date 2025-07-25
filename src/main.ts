@@ -27,12 +27,10 @@ function generateCode(): void {
   });
   const outputElement = document.getElementById("codeOutput");
   if (outputElement) outputElement.textContent = code;
-  highlightSyntax(outputElement);
+
 }
 
-function highlightSyntax(element: HTMLElement | null): void {
-  // Wyłączone podświetlanie składni
-}
+
 
 function copyToClipboard(): void {
   const codeOutput = document.getElementById("codeOutput");
