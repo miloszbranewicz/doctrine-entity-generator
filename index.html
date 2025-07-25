@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generator Encji Doctrine - PrestaShop 8.1</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🚀 Generator Encji Doctrine</h1>
+        <p>Dla PrestaShop 8.1 - Twórz encje błyskawicznie!</p>
+      </div>
+
+      <div class="main-content">
+        <div class="form-section">
+          <div class="form-group">
+            <label for="className">Nazwa klasy:</label>
+            <input
+              type="text"
+              id="className"
+              placeholder="np. Product, Category, User"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="namespace">Namespace:</label>
+            <input
+              type="text"
+              id="namespace"
+              value="App\Entity"
+              placeholder="App\Entity"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="repositoryClass">Klasa Repository:</label>
+            <input
+              type="text"
+              id="repositoryClass"
+              placeholder="Automatycznie generowana"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Pola encji:</label>
+            <div class="fields-container">
+              <div id="fieldsContainer">
+                <!-- Domyślne pole ID -->
+                <div class="field-row">
+                  <div>
+                    <label>Nazwa pola:</label>
+                    <input type="text" class="field-name" value="id" readonly />
+                  </div>
+                  <div>
+                    <label>Typ:</label>
+                    <select class="field-type" disabled>
+                      <option value="integer">integer</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label>Długość:</label>
+                    <input
+                      type="text"
+                      class="field-length"
+                      placeholder="auto"
+                      disabled
+                    />
+                  </div>
+                  <div>
+                    <label>Akcje:</label>
+                    <button type="button" class="btn btn-secondary" disabled>
+                      ID
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-controls">
+                <button type="button" id="addField" class="btn btn-success">
+                  ➕ Dodaj pole
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" id="generateCode" class="btn btn-primary">
+            ⚡ Generuj encję
+          </button>
+        </div>
+
+        <div class="output-section">
+          <div class="output-header">
+            <h3>📄 Wygenerowany kod</h3>
+            <button id="copyCode" class="copy-btn">📋 Kopiuj</button>
+          </div>
+          <div id="codeOutput" class="code-output syntax-highlight">
+            // Twój kod pojawi się tutaj...
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="successMessage" class="success-message">
+      ✅ Kod skopiowany do schowka!
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
